@@ -14,5 +14,12 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Producer {
-//TODO maak de verbinding met de message broker en verstuur het bericht.
+    
+    public Producer() {
+
+    }
+
+    public void sendMessageToBroker(Bericht message) {
+
+    }
 }

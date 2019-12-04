@@ -101,5 +101,6 @@ public class Bus{
 
 	public void sendBericht(Bericht bericht){
 		//TODO verstuur een XML bericht naar de messagebroker.
+		System.out.println(bericht);
 	}
 }

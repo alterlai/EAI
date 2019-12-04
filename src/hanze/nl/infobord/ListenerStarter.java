@@ -11,6 +11,15 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public  class ListenerStarter implements Runnable, ExceptionListener {
+    @Override
+    public void run() {
+
+    }
+
+    @Override
+    public void onException(JMSException e) {
+
+    }
 //TODO	Implementeer de starter voor de messagelistener:
 //		Zet de verbinding op met de messagebroker en start de listener met 
 //		de juiste selector.

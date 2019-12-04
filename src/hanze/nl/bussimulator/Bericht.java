@@ -19,4 +19,24 @@ public class Bericht {
 		this.ETAs=new ArrayList<ETA>();
 	}
 
+
+	public String getXML() {
+		StringBuilder message = new StringBuilder("<Bericht>\n"
+				+ "<lijnNaam>" + this.lijnNaam + "</lijnNaam>"
+				+ "<eindpunt>" + this.eindpunt + "</eindpunt>"
+				+ "<bedrijf>" + this.bedrijf + "</bedrijf>"
+				+ "<busID>" + this.busID + "</busID>"
+				+ "<tijd>" + this.tijd + "</tijd>"
+				+ "<ETAs>");
+		for(ETA eta : this.ETAs) {
+			message.append("<ETA>")
+					.append("<halteNaam>").append(eta.halteNaam)
+					.append("</halteNaam>")
+					.append("<richting>").append(eta.richting).append("</richting>")
+					.append("<aankomsttijd>").append(eta.aankomsttijd).append("</aankomsttijd>")
+					.append("</ETA>");
+		}
+		message.append("</ETAs>" + "</Bericht>");
+		return message.toString();
+	}
 }

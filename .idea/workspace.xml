@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="" />
+    <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bericht.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1UW77jcX5OFVncdYUjCftGlN5cn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -29,7 +45,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8.0_101" />
+      <option name="ALTERNATIVE_JRE_PATH" value="9" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="hanze.nl.bussimulator.Runner" />
       <module name="BusSimulator" />
@@ -61,5 +77,16 @@
       <updated>1575460331222</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
