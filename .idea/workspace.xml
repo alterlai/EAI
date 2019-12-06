@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +79,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

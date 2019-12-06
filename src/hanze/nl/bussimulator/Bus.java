@@ -12,8 +12,9 @@ public class Bus{
 	private int richting;
 	private boolean bijHalte;
 	private String busID;
+	private Producer broker;
 	
-	Bus(Lijnen lijn, Bedrijven bedrijf, int richting){
+	Bus(Lijnen lijn, Bedrijven bedrijf, int richting, Producer producer){
 		this.lijn=lijn;
 		this.bedrijf=bedrijf;
 		this.richting=richting;
@@ -21,6 +22,7 @@ public class Bus{
 		this.totVolgendeHalte = 0;
 		this.bijHalte = false;
 		this.busID = "Niet gestart";
+		this.broker = producer;
 	}
 	
 	public void setbusID(int starttijd){
@@ -100,7 +102,7 @@ public class Bus{
 	}
 
 	public void sendBericht(Bericht bericht){
-		//TODO verstuur een XML bericht naar de messagebroker.
+		this.broker.sendMessageToBroker(bericht);
 		System.out.println(bericht);
 	}
 }

@@ -11,9 +11,10 @@ public class Producer {
     private Connection connection;
     private Session session;
     private MessageProducer producer;
+    private Producer self;
 
     public Producer() {
-        try {
+       try {
 
             // Create a ConnectionFactory
             ActiveMQConnectionFactory connectionFactory =
