@@ -9,6 +9,6 @@ public class Runner {
 	}
 
     public static void main(String[] args) throws Exception {
-        thread(new ListenerStarter(),false);
+        thread(new ListenerStarter(true, true),false);
     }
 }

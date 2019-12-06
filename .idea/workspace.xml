@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +36,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Runner">
+    <configuration name="Runner (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hanze.nl.infobord.Runner" />
+      <module name="BusSimulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hanze.nl.infobord.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="9" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -58,6 +68,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner (1)" />
       </list>
     </recent_temporary>
   </component>
