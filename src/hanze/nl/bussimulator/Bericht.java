@@ -1,5 +1,8 @@
 package hanze.nl.bussimulator;
 
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.persistence.XmlMap;
+
 import java.util.ArrayList;
 
 public class Bericht {
@@ -21,7 +24,7 @@ public class Bericht {
 
 
 	public String getXML() {
-		StringBuilder message = new StringBuilder("<Bericht>\n"
+		StringBuilder message = new StringBuilder("<Bericht>"
 				+ "<lijnNaam>" + this.lijnNaam + "</lijnNaam>"
 				+ "<eindpunt>" + this.eindpunt + "</eindpunt>"
 				+ "<bedrijf>" + this.bedrijf + "</bedrijf>"
@@ -38,5 +41,14 @@ public class Bericht {
 		}
 		message.append("</ETAs>" + "</Bericht>");
 		return message.toString();
+	}
+
+	public String getXMLJackson() {
+		XStream xStream = new XStream();
+		xStream.alias("ETA", ETA.class);
+		xStream.alias("Bericht", Bericht.class);
+		String xml = xStream.toXML(this);
+		System.out.println(xml);
+		return xml;
 	}
 }

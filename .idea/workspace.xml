@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bericht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bus.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Bus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/bussimulator/Producer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/InfoBord.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/InfoBord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/JSONBericht.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/JSONBericht.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/QueueListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/QueueListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bericht.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +50,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Runner">
+  <component name="RunManager" selected="Application.Runner (1)">
     <configuration name="Runner (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hanze.nl.infobord.Runner" />
       <module name="BusSimulator" />
@@ -67,8 +81,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner (1)" />
+        <item itemvalue="Application.Runner" />
       </list>
     </recent_temporary>
   </component>
@@ -97,5 +111,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

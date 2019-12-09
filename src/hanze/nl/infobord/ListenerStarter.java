@@ -4,6 +4,12 @@ import javax.jms.*;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.activemq.advisory.DestinationSource;
+import org.apache.activemq.command.ActiveMQQueue;
+import org.apache.activemq.command.ActiveMQTopic;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public  class ListenerStarter implements Runnable, ExceptionListener {
     private boolean queue=true;
@@ -21,13 +27,14 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
 
     @Override
     public void run() {
+        InfoBord infobord = InfoBord.getInfoBord();
         try {
             // Create a ConnectionFactory
             ActiveMQConnectionFactory connectionFactory =
                     new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
 
             // Create a Connection
-            Connection connection = connectionFactory.createConnection();
+            ActiveMQConnection connection = (ActiveMQConnection) connectionFactory.createConnection();
             connection.start();
 
             connection.setExceptionListener(this);
@@ -35,30 +42,21 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
             // Create a Session
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
-            // Create the destination (Topic or Queue)
-            Destination destination = (queue) ? session.createQueue("Infoborden") :
-                    session.createTopic("TOPIC.FOO");
+            // Get all available topics
+            DestinationSource ds = connection.getDestinationSource();
+            Set<ActiveMQQueue> queues = ds.getQueues();
 
-            // Create a MessageConsumer from the Session to the Topic or Queue
-            MessageConsumer consumer = session.createConsumer(destination);
+            for (ActiveMQQueue queue: queues) {
+                if (queue.getQueueName().startsWith("LIJN")) {
+                    // Create the destination (Topic or Queue)
+                    Destination destination = session.createQueue(queue.getQueueName());
 
-            boolean newMessage=true;
-            //           consumer.setMessageListener(new HelloWorldListener("Consumer"));
-            // Wait for a message
-            while (newMessage) {
-                Message message = consumer.receive(2000);
+                    // Create a MessageConsumer from the Session to the Topic or Queue
+                    MessageConsumer consumer = session.createConsumer(destination);
 
-                newMessage=false;
-                if (message instanceof TextMessage) {
-                    TextMessage textMessage = (TextMessage) message;
-                    String text = textMessage.getText();
-                    System.out.println("Consumer("+type+"): " + id + " Received: " + text);
-                    newMessage=true&&getAll;
-                } else {
-                    System.out.println("Consumer("+type+"): " + id + " Received: " + message);
+                    consumer.setMessageListener(new QueueListener());
                 }
             }
-            consumer.close();
             session.close();
             connection.close();
         } catch (Exception e) {

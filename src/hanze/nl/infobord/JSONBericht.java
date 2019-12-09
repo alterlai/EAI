@@ -1,5 +1,6 @@
 package hanze.nl.infobord;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 public class JSONBericht {
 	private int tijd;
@@ -8,9 +9,11 @@ public class JSONBericht {
 	private String busID;
 	private String bedrijf;
 	private String eindpunt;
+	private String bericht;
 
-	public JSONBericht(int tijd, int aankomsttijd, String lijnNaam, String busID, String bedrijf, String eindpunt) {
+	public JSONBericht(int tijd, int aankomsttijd, String lijnNaam, String busID, String bedrijf, String eindpunt, String bericht) {
 		super();
+		this.bericht = bericht;
 		this.tijd = tijd;
 		this.aankomsttijd = aankomsttijd;
 		this.lijnNaam = lijnNaam;
@@ -18,7 +21,7 @@ public class JSONBericht {
 		this.bedrijf = bedrijf;
 		this.eindpunt = eindpunt;
 	}
-	
+
 	public JSONBericht(){
 		
 	}

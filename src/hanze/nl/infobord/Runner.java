@@ -9,6 +9,7 @@ public class Runner {
 	}
 
     public static void main(String[] args) throws Exception {
-        thread(new ListenerStarter(true, true),false);
+        thread(new ListenerStarter(false, true),false);
+        InfoBord infobord = InfoBord.getInfoBord();
     }
 }

@@ -52,7 +52,7 @@ public class Producer {
 
     public void sendMessageToBroker(Bericht message) {
         try {
-            this.producer.send(this.session.createTextMessage(message.getXML()));
+            this.producer.send(this.session.createTextMessage(message.getXMLJackson()));
         } catch (Exception e) {
             System.err.println("An error occured while sending XML message");
             e.printStackTrace();

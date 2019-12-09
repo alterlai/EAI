@@ -103,6 +103,5 @@ public class Bus{
 
 	public void sendBericht(Bericht bericht){
 		this.broker.sendMessageToBroker(bericht);
-		System.out.println(bericht);
 	}
 }

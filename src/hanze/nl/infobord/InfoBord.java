@@ -104,6 +104,7 @@ public class InfoBord {
 	}
 	
 	public static void verwerkBericht(String incoming){
+		System.out.println("verwerkbericht called");
         try {
 			JSONBericht bericht = new ObjectMapper().readValue(incoming, JSONBericht.class);
 			String busID = bericht.getBusID();
