@@ -9,11 +9,11 @@ public class JSONBericht {
 	private String busID;
 	private String bedrijf;
 	private String eindpunt;
-	private String bericht;
+	private String Bericht;
 
-	public JSONBericht(int tijd, int aankomsttijd, String lijnNaam, String busID, String bedrijf, String eindpunt, String bericht) {
+	public JSONBericht(int tijd, int aankomsttijd, String lijnNaam, String busID, String bedrijf, String eindpunt, String Bericht) {
 		super();
-		this.bericht = bericht;
+		this.Bericht = Bericht;
 		this.tijd = tijd;
 		this.aankomsttijd = aankomsttijd;
 		this.lijnNaam = lijnNaam;
