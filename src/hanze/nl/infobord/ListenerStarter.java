@@ -45,18 +45,39 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
             // Get all available topics
             DestinationSource ds = connection.getDestinationSource();
             Set<ActiveMQQueue> queues = ds.getQueues();
+            Destination destination = (queue) ? session.createQueue("LIJN1") : session.createTopic("LIJN1");
+            MessageConsumer consumer = session.createConsumer(destination);
 
-            for (ActiveMQQueue queue: queues) {
-                if (queue.getQueueName().startsWith("LIJN")) {
-                    // Create the destination (Topic or Queue)
-                    Destination destination = session.createQueue(queue.getQueueName());
-
-                    // Create a MessageConsumer from the Session to the Topic or Queue
-                    MessageConsumer consumer = session.createConsumer(destination);
-
-                    consumer.setMessageListener(new QueueListener());
+            boolean newMessage=true;
+            while (newMessage) {
+                Message message = consumer.receive(2000);
+                newMessage = false;
+                if (message instanceof TextMessage) {
+                    TextMessage textMessage = (TextMessage) message;
+                    String text = textMessage.getText();
+                    System.out.println("Consumer("+type+"): " + id + " Received: " + text);
+                    InfoBord.verwerkBericht(text);
+                    newMessage = true;
+                }
+                else {
+                    System.out.println("Consumer("+type+"): " + id + " Received: " + message);
+                    newMessage = true;
                 }
             }
+
+//            for (ActiveMQQueue queue: queues) {
+//                if (queue.getQueueName().startsWith("LIJN")) {
+//                    // Create the destination (Topic or Queue)
+//                    Destination destination = session.createQueue(queue.getQueueName());
+//
+//                    // Create a MessageConsumer from the Session to the Topic or Queue
+//                    MessageConsumer consumer = session.createConsumer(destination);
+//
+//                    consumer.setMessageListener(new QueueListener());
+//                    System.out.println("Listener for " + queue.getQueueName() + "gestart");
+//                }
+//            }
+//            System.out.println("Closing session");
             session.close();
             connection.close();
         } catch (Exception e) {

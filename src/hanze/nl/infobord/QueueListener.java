@@ -18,6 +18,7 @@ public class QueueListener implements MessageListener {
 
                     String text = textMessage.getText();
                     InfoBord.verwerkBericht(text);
+                    InfoBord.getInfoBord().setRegels();
                     newMessage = true;
                 } else {
                     System.out.println("Consumer): Received non-Textmessage object");

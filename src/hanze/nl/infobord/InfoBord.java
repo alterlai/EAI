@@ -25,7 +25,7 @@ public class InfoBord {
 	private JLabel regel2;
 	private JLabel regel3;
 	private JLabel regel4;
-	
+
 	private InfoBord(){
 		this.scherm = new JFrame("InfoBord");
 		JPanel panel = new JPanel();
@@ -45,14 +45,14 @@ public class InfoBord {
 		scherm.pack();
 		scherm.setVisible(true);
 	}
-	
+
 	public static InfoBord getInfoBord(){
 		if(infobord==null){
 			infobord=new InfoBord();
 		}
 		return infobord;
 	}
-	
+
 	public void setRegels(){
 		String[] infoTekst={"--1--","--2--","--3--","--4--","leeg"};
 		int[] aankomsttijden=new int[5];
@@ -79,10 +79,11 @@ public class InfoBord {
 			}
 		}
 		if(checkRepaint(aantalRegels, aankomsttijden)){
+			System.out.println("Repainting window");
 			repaintInfoBord(infoTekst);
 		}
 	}
-	
+
 	private boolean checkRepaint(int aantalRegels, int[] aankomsttijden){
 		int totaalTijden=0;
 		for(int i=0; i<aantalRegels;i++){
@@ -100,20 +101,21 @@ public class InfoBord {
 		regel2.setText(infoTekst[1]);
 		regel3.setText(infoTekst[2]);
 		regel4.setText(infoTekst[3]);
-		scherm.repaint();		
+		scherm.repaint();
 	}
-	
+
 	public static void verwerkBericht(String incoming){
-		System.out.println("verwerkbericht called");
         try {
 			JSONBericht bericht = new ObjectMapper().readValue(incoming, JSONBericht.class);
 			String busID = bericht.getBusID();
 			Integer tijd = bericht.getTijd();
-			if (!laatsteBericht.containsKey(busID) || laatsteBericht.get(busID)<=tijd){
+			System.out.println("Bericht verwerken voor busID: " + busID);
+			if (!laatsteBericht.containsKey(busID) || laatsteBericht.get(busID)<=tijd) {
 				laatsteBericht.put(busID, tijd);
-				if (bericht.getAankomsttijd()==0){
+				if (bericht.getAankomsttijd() == 0) {
 					infoBordRegels.remove(busID);
 				} else {
+					System.out.println("Toegevoegd");
 					infoBordRegels.put(busID, bericht);
 				}
 			}
