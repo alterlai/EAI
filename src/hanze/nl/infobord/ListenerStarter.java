@@ -45,7 +45,7 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
             // Get all available topics
             DestinationSource ds = connection.getDestinationSource();
             Set<ActiveMQQueue> queues = ds.getQueues();
-            Destination destination = (queue) ? session.createQueue("LIJN1") : session.createTopic("LIJN1");
+            Destination destination = (queue) ? session.createQueue("X") : session.createTopic("X");
             MessageConsumer consumer = session.createConsumer(destination);
 
             boolean newMessage=true;
@@ -57,6 +57,7 @@ public  class ListenerStarter implements Runnable, ExceptionListener {
                     String text = textMessage.getText();
                     System.out.println("Consumer("+type+"): " + id + " Received: " + text);
                     InfoBord.verwerkBericht(text);
+                    InfoBord.getInfoBord().setRegels();
                     newMessage = true;
                 }
                 else {
