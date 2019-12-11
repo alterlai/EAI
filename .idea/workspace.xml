@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +40,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Runner (1)">
+  <component name="RunManager" selected="Application.Runner">
     <configuration name="Runner (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hanze.nl.infobord.Runner" />
       <module name="BusSimulator" />
@@ -71,8 +75,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Runner (1)" />
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -94,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575988579346</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Shit is nu gefixt">
+      <created>1576060968351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1576060968351</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,6 +123,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Poging tot shit fixen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Poging tot shit fixen" />
+    <MESSAGE value="Shit is nu gefixt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shit is nu gefixt" />
   </component>
 </project>

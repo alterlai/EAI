@@ -109,13 +109,11 @@ public class InfoBord {
 			JSONBericht bericht = new ObjectMapper().readValue(incoming, JSONBericht.class);
 			String busID = bericht.getBusID();
 			Integer tijd = bericht.getTijd();
-			System.out.println("Bericht verwerken voor busID: " + busID);
 			if (!laatsteBericht.containsKey(busID) || laatsteBericht.get(busID)<=tijd) {
 				laatsteBericht.put(busID, tijd);
 				if (bericht.getAankomsttijd() == 0) {
 					infoBordRegels.remove(busID);
 				} else {
-					System.out.println("Toegevoegd");
 					infoBordRegels.put(busID, bericht);
 				}
 			}
