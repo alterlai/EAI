@@ -1,4 +1,4 @@
-package hanze.nl.bussimulator;
+package hanze.nl.mockdatabaselogger;
 
 import java.util.ArrayList;
 
@@ -18,4 +18,5 @@ public class Bericht {
 		this.tijd=tijd;
 		this.ETAs=new ArrayList<ETA>();
 	}
+
 }
