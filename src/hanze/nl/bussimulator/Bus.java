@@ -12,8 +12,9 @@ public class Bus{
 	private int richting;
 	private boolean bijHalte;
 	private String busID;
+	private Producer broker;
 	
-	Bus(Lijnen lijn, Bedrijven bedrijf, int richting){
+	Bus(Lijnen lijn, Bedrijven bedrijf, int richting, Producer producer){
 		this.lijn=lijn;
 		this.bedrijf=bedrijf;
 		this.richting=richting;
@@ -21,10 +22,11 @@ public class Bus{
 		this.totVolgendeHalte = 0;
 		this.bijHalte = false;
 		this.busID = "Niet gestart";
+		this.broker = producer;
 	}
 	
 	public void setbusID(int starttijd){
-		this.busID=starttijd+lijn.name()+richting;
+		this.busID=starttijd+lijn.name()+ "R" + richting;
 	}
 	
 	public void naarVolgendeHalte(){
@@ -82,6 +84,7 @@ public class Bus{
 		for (i = halteNummer+richting ; !(i>=lijn.getLengte()) && !(i < 0); i=i+richting ){
 			tijdNaarHalte+= lijn.getHalte(i).afstand(eerstVolgende);
 			ETA eta = new ETA(lijn.getHalte(i).name(), lijn.getRichting(i),tijdNaarHalte);
+			System.out.println(bericht.lijnNaam + " naar halte" + eta.halteNaam + " t=" + tijdNaarHalte);
 			bericht.ETAs.add(eta);
 			eerstVolgende=lijn.getHalte(i).getPositie();
 		}
@@ -99,6 +102,6 @@ public class Bus{
 	}
 
 	public void sendBericht(Bericht bericht){
-		//TODO verstuur een XML bericht naar de messagebroker.	
+		this.broker.sendMessageToBroker(bericht);
 	}
 }
