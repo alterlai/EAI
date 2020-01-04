@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ffc74e00-b7df-45e6-9832-b6bde9ddc713" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_httpcomponents_httpcore_4_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/mockdatabaselogger/ArrivaLogger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/mockdatabaselogger/Bericht.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/mockdatabaselogger/ETA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/tijdtools/HTTPFuncties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/tijdtools/InfobordTijdFuncties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/tijdtools/Tijd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hanze/nl/tijdtools/TijdFuncties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/ListenerStarter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BusSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BusSimulator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/InfoBord.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/InfoBord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/QueueListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/QueueListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/hanze/nl/infobord/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/hanze/nl/infobord/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Bus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/bussimulator/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/InfoBord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/ListenerStarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/JSONBericht.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/QueueListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hanze/nl/infobord/Runner.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,12 +33,25 @@
   <component name="ProjectId" id="1UW77jcX5OFVncdYUjCftGlN5cn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="findjar.last.used.dir" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/httpclient-4.5.10.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sander-Laptop\Documents\EAI\src\hanze\nl" />
+      <recent name="C:\Users\Sander-Laptop\Documents\EAI" />
+      <recent name="C:\Users\Sander-Laptop\Documents\EAI\src\hanze\nl\infobord" />
+      <recent name="C:\Users\Sander-Laptop\Documents\EAI\src\hanze\nl\bussimulator" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -105,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576060968351</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Shit is nu gefixt">
+      <created>1576068807562</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1576068807562</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

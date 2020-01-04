@@ -13,7 +13,7 @@ public class QueueListener implements MessageListener {
                 String text = textMessage.getText();
                 System.out.println(text);
                 InfoBord infobord = InfoBord.getInfoBord();
-                infobord.verwerkBericht(text);
+                infobord.verwerktBericht(text);
                 infobord.setRegels();
             } else {
                 System.out.println("Consumer): Received non-Textmessage object");
