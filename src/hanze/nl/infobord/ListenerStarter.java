@@ -50,19 +50,6 @@ public class ListenerStarter implements Runnable, ExceptionListener {
         } catch (Exception e){
 
         }
-//            for (ActiveMQQueue queue: queues) {
-//                if (queue.getQueueName().startsWith("LIJN")) {
-//                    // Create the destination (Topic or Queue)
-//                    Destination destination = session.createQueue(queue.getQueueName());
-//
-//                    // Create a MessageConsumer from the Session to the Topic or Queue
-//                    MessageConsumer consumer = session.createConsumer(destination);
-//
-//                    consumer.setMessageListener(new QueueListener());
-//                    System.out.println("Listener for " + queue.getQueueName() + "gestart");
-//                }
-//            }
-//            System.out.println("Closing session");
 }
 
     @Override

@@ -11,7 +11,6 @@ public class QueueListener implements MessageListener {
             if (message instanceof TextMessage) {
                 TextMessage textMessage = (TextMessage) message;
                 String text = textMessage.getText();
-                System.out.println(text);
                 InfoBord infobord = InfoBord.getInfoBord();
                 infobord.verwerktBericht(text);
                 infobord.setRegels();
