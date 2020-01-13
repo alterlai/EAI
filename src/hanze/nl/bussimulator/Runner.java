@@ -21,11 +21,14 @@ public class Runner {
 		bus.setbusID(starttijd);
 	}
 	
-	private static int startBussen(int tijd){
+	private static void startBussen(int tijd){
 		for (Bus bus : busStart.get(tijd)){
 			actieveBussen.add(bus);
 		}
 		busStart.remove(tijd);
+	}
+
+	private static int isBusStartEmpty() {
 		return (!busStart.isEmpty()) ? Collections.min(busStart.keySet()) : -1;
 	}
 	
@@ -106,7 +109,8 @@ public class Runner {
 		int volgende = Collections.min(busStart.keySet());
 		while ((volgende>=0) || !actieveBussen.isEmpty()) {
 			System.out.println("De tijd is:" + tijd);
-			volgende = (tijd==volgende) ? startBussen(tijd) : volgende;
+			startBussen(tijd);
+			volgende = (tijd==volgende) ? isBusStartEmpty() : volgende;
 			moveBussen(tijd);
 			sendETAs(tijd);
 			Thread.sleep(interval);
