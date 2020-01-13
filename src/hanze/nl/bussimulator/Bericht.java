@@ -6,49 +6,59 @@ import com.thoughtworks.xstream.persistence.XmlMap;
 import java.util.ArrayList;
 
 public class Bericht {
-	String lijnNaam;
-	String eindpunt;
-	String bedrijf;
-	String busID;
-	int tijd;
-	ArrayList<ETA> ETAs;
-	
-	Bericht(String lijnNaam, String bedrijf, String busID, int tijd){
-		this.lijnNaam=lijnNaam;
-		this.bedrijf=bedrijf;
-		this.eindpunt="";
-		this.busID=busID;
-		this.tijd=tijd;
-		this.ETAs=new ArrayList<ETA>();
+    private String lijnNaam;
+    private String eindpunt;
+    private String bedrijf;
+    private String busID;
+    private int tijd;
+    private ArrayList<ETA> ETAs;
+
+    Bericht() {
+        this.eindpunt = "";
+        this.ETAs = new ArrayList<>();
+    }
+
+    Bericht forBusAtTime(Bus bus, int nu) {
+        int i;
+        this.lijnNaam = bus.getLijn().name();
+        this.bedrijf = bus.getBedrijf().name();
+        this.busID = bus.getBusID();
+		this.tijd = nu;
+        if (bus.isBijHalte()) {
+            ETA eta = new ETA(
+                    bus.getLijn().getHalte(bus.getHalteNummer()).name(),
+                    bus.getLijn().getRichting(bus.getHalteNummer()),
+                    0);
+            this.ETAs.add(eta);
+        }
+        Halte.Positie eerstVolgende = bus.getLijn().getHalte(bus.getHalteNummer() + bus.getRichting()).getPositie();
+        int tijdNaarHalte = bus.getTijdTotVolgendeHalte() + nu;
+        for (i = bus.getHalteNummer() + bus.getRichting(); !(i >= bus.getLijn().getLengte()) && !(i < 0); i = i + bus.getRichting()) {
+            tijdNaarHalte += bus.getLijn().getHalte(i).afstand(eerstVolgende);
+            ETA eta = new ETA(bus.getLijn().getHalte(i).name(), bus.getLijn().getRichting(i), tijdNaarHalte);
+            this.ETAs.add(eta);
+            eerstVolgende = bus.getLijn().getHalte(i).getPositie();
+        }
+        this.eindpunt = bus.getLijn().getHalte(i - bus.getRichting()).name();
+        return this;
+    }
+
+    Bericht lastEtaForBusAtTime(Bus bus, int nu) {
+		this.lijnNaam = bus.getLijn().name();
+		this.bedrijf = bus.getBedrijf().name();
+		this.busID = bus.getBusID();
+		this.tijd = nu;
+		String eindpunt = bus.getLijn().getHalte(bus.getHalteNummer()).name();
+		ETA eta = new ETA(eindpunt, bus.getLijn().getRichting(bus.getHalteNummer()), 0);
+		this.ETAs.add(eta);
+		this.eindpunt = eindpunt;
+		return this;
 	}
 
-
-	public String getXML() {
-		StringBuilder message = new StringBuilder("<Bericht>"
-				+ "<lijnNaam>" + this.lijnNaam + "</lijnNaam>"
-				+ "<eindpunt>" + this.eindpunt + "</eindpunt>"
-				+ "<bedrijf>" + this.bedrijf + "</bedrijf>"
-				+ "<busID>" + this.busID + "</busID>"
-				+ "<tijd>" + this.tijd + "</tijd>"
-				+ "<ETAs>");
-		for(ETA eta : this.ETAs) {
-			message.append("<ETA>")
-					.append("<halteNaam>").append(eta.halteNaam)
-					.append("</halteNaam>")
-					.append("<richting>").append(eta.richting).append("</richting>")
-					.append("<aankomsttijd>").append(eta.aankomsttijd).append("</aankomsttijd>")
-					.append("</ETA>");
-		}
-		message.append("</ETAs>" + "</Bericht>");
-		return message.toString();
-	}
-
-	public String getXMLJackson() {
-		XStream xStream = new XStream();
-		xStream.alias("ETA", ETA.class);
-		xStream.alias("Bericht", Bericht.class);
-		String xml = xStream.toXML(this);
-		System.out.println(xml);
-		return xml;
-	}
+    public String getXMLJackson() {
+        XStream xStream = new XStream();
+        xStream.alias("ETA", ETA.class);
+        xStream.alias("Bericht", Bericht.class);
+		return xStream.toXML(this);
+    }
 }

@@ -42,7 +42,6 @@ public class ListenerStarter implements Runnable, ExceptionListener {
 
             // Get all available topics
             DestinationSource ds = connection.getDestinationSource();
-            Set<ActiveMQQueue> queues = ds.getQueues();
             Destination destination = session.createTopic("INFOBORD.JSON");
             MessageConsumer consumer = session.createConsumer(destination, selector);
             consumer.setMessageListener(new QueueListener());

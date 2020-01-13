@@ -1,38 +1,39 @@
 package hanze.nl.bussimulator;
 
-import com.thoughtworks.xstream.XStream;
 import hanze.nl.bussimulator.Halte.Positie;
 
 public class Bus{
 
 	private Bedrijven bedrijf;
+	private Producer producer;
 	private Lijnen lijn;
 	private int halteNummer;
-	private int totVolgendeHalte;
+	private int tijdTotVolgendeHalte;
 	private int richting;
 	private boolean bijHalte;
 	private String busID;
 	
-	Bus(Lijnen lijn, Bedrijven bedrijf, int richting){
+	Bus(Lijnen lijn, Bedrijven bedrijf, int richting, Producer producer){
 		this.lijn=lijn;
+		this.producer = producer;
 		this.bedrijf=bedrijf;
 		this.richting=richting;
 		this.halteNummer = -1;
-		this.totVolgendeHalte = 0;
+		this.tijdTotVolgendeHalte = 0;
 		this.bijHalte = false;
 		this.busID = "Niet gestart";
 	}
 	
-	public void setbusID(int starttijd){
+	void setbusID(int starttijd){
 		this.busID=starttijd+lijn.name()+richting;
 	}
 	
-	public void naarVolgendeHalte(){
+	private void naarVolgendeHalte(){
 		Positie volgendeHalte = lijn.getHalte(halteNummer+richting).getPositie();
-		totVolgendeHalte = lijn.getHalte(halteNummer).afstand(volgendeHalte);
+		tijdTotVolgendeHalte = lijn.getHalte(halteNummer).afstand(volgendeHalte);
 	}
 	
-	public boolean halteBereikt(){
+	private boolean halteBereikt(){
 		halteNummer+=richting;
 		bijHalte=true;
 		if ((halteNummer>=lijn.getLengte()-1) || (halteNummer == 0)) {
@@ -48,62 +49,63 @@ public class Bus{
 		return false;
 	}
 	
-	public void start() {
+	private void start() {
 		halteNummer = (richting==1) ? 0 : lijn.getLengte()-1;
 		System.out.printf("Bus %s is vertrokken van halte %s in richting %d.%n", 
 				lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));		
 		naarVolgendeHalte();
 	}
 	
-	public boolean move(){
+	boolean move(){
 		boolean eindpuntBereikt = false;
 		bijHalte=false;
 		if (halteNummer == -1) {
 			start();
 		}
 		else {
-			totVolgendeHalte--;
-			if (totVolgendeHalte==0){
+			tijdTotVolgendeHalte--;
+			if (tijdTotVolgendeHalte ==0){
 				eindpuntBereikt=halteBereikt();
 			}
 		}
 		return eindpuntBereikt;
 	}
 	
-	public void sendETAs(int nu){
-		int i=0;
-		Bericht bericht = new Bericht(lijn.name(),bedrijf.name(),busID,nu);
-		if (bijHalte) {
-			ETA eta = new ETA(lijn.getHalte(halteNummer).name(),lijn.getRichting(halteNummer),0);
-			bericht.ETAs.add(eta);
-		}
-		Positie eerstVolgende=lijn.getHalte(halteNummer+richting).getPositie();
-		int tijdNaarHalte=totVolgendeHalte+nu;
-		for (i = halteNummer+richting ; !(i>=lijn.getLengte()) && !(i < 0); i=i+richting ){
-			tijdNaarHalte+= lijn.getHalte(i).afstand(eerstVolgende);
-			ETA eta = new ETA(lijn.getHalte(i).name(), lijn.getRichting(i),tijdNaarHalte);
-			bericht.ETAs.add(eta);
-			eerstVolgende=lijn.getHalte(i).getPositie();
-		}
-		bericht.eindpunt=lijn.getHalte(i-richting).name();
-		sendBericht(bericht);
+	void sendETAs(int nu){
+		Bericht bericht = new Bericht().forBusAtTime(this, nu);
+		producer.sendMessageToBroker(bericht);
 	}
 	
-	public void sendLastETA(int nu){
-		Bericht bericht = new Bericht(lijn.name(),bedrijf.name(),busID,nu);
-		String eindpunt = lijn.getHalte(halteNummer).name();
-		ETA eta = new ETA(eindpunt,lijn.getRichting(halteNummer),0);
-		bericht.ETAs.add(eta);
-		bericht.eindpunt = eindpunt;
-		sendBericht(bericht);
+	void sendLastETA(int nu){
+		Bericht bericht = new Bericht().lastEtaForBusAtTime(this, nu);
+		producer.sendMessageToBroker(bericht);
 	}
 
-	public void sendBericht(Bericht bericht){
-    	XStream xstream = new XStream();
-    	xstream.alias("Bericht", Bericht.class);
-    	xstream.alias("ETA", ETA.class);
-    	String xml = xstream.toXML(bericht);
-    	Producer producer = new Producer();
-    	producer.sendMessageToBroker(bericht);
+	Bedrijven getBedrijf() {
+		return bedrijf;
+	}
+
+	Lijnen getLijn() {
+		return lijn;
+	}
+
+	int getHalteNummer() {
+		return halteNummer;
+	}
+
+	int getTijdTotVolgendeHalte() {
+		return tijdTotVolgendeHalte;
+	}
+
+	int getRichting() {
+		return richting;
+	}
+
+	boolean isBijHalte() {
+		return bijHalte;
+	}
+
+	String getBusID() {
+		return busID;
 	}
 }

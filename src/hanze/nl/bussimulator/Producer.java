@@ -1,17 +1,14 @@
 package hanze.nl.bussimulator;
 
-import java.util.Date;
-
-import javax.jms.*;
-
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
+
+import javax.jms.*;
 
 public class Producer {
     private Connection connection;
     private Session session;
     private MessageProducer producer;
-    private Producer self;
 
     public Producer() {
        try {
@@ -52,6 +49,7 @@ public class Producer {
 
     public void sendMessageToBroker(Bericht message) {
         try {
+            System.out.println(message.getXMLJackson());
             this.producer.send(this.session.createTextMessage(message.getXMLJackson()));
         } catch (Exception e) {
             System.err.println("An error occured while sending XML message");
