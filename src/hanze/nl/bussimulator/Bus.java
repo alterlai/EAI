@@ -28,47 +28,47 @@ public class Bus{
 		this.busID=starttijd+lijn.name()+richting;
 	}
 	
-	private void naarVolgendeHalte(){
+	private void gaNaarVolgendeHalte(){
 		Positie volgendeHalte = lijn.getHalte(halteNummer+richting).getPositie();
 		tijdTotVolgendeHalte = lijn.getHalte(halteNummer).afstand(volgendeHalte);
 	}
-	
-	private boolean halteBereikt(){
-		halteNummer+=richting;
-		bijHalte=true;
-		if ((halteNummer>=lijn.getLengte()-1) || (halteNummer == 0)) {
-			System.out.printf("Bus %s heeft eindpunt (halte %s, richting %d) bereikt.%n", 
+
+	boolean isBijEindHalte() {
+		return (halteNummer>=lijn.getLengte()-1) || (halteNummer == 0);
+	}
+
+	void printOnRouteInformatie() {
+		if (isBijEindHalte()) {
+			System.out.printf("Bus %s heeft eindpunt (halte %s, richting %d) bereikt.%n",
 					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));
-			return true;
+		}
+		if (halteNummer == -1 ) {
+			System.out.printf("Bus %s is vertrokken van halte %s in richting %d.%n",
+					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));
 		}
 		else {
-			System.out.printf("Bus %s heeft halte %s, richting %d bereikt.%n", 
-					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));		
-			naarVolgendeHalte();
-		}		
-		return false;
+			System.out.printf("Bus %s heeft halte %s, richting %d bereikt.%n",
+					lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));
+		}
 	}
 	
 	private void start() {
 		halteNummer = (richting==1) ? 0 : lijn.getLengte()-1;
-		System.out.printf("Bus %s is vertrokken van halte %s in richting %d.%n", 
-				lijn.name(), lijn.getHalte(halteNummer), lijn.getRichting(halteNummer));		
-		naarVolgendeHalte();
+		gaNaarVolgendeHalte();
 	}
 	
-	boolean move(){
-		boolean eindpuntBereikt = false;
+	void move() {
 		bijHalte=false;
 		if (halteNummer == -1) {
 			start();
 		}
 		else {
 			tijdTotVolgendeHalte--;
-			if (tijdTotVolgendeHalte ==0){
-				eindpuntBereikt=halteBereikt();
+			if (tijdTotVolgendeHalte == 0) {
+				halteNummer += richting;
+				gaNaarVolgendeHalte();
 			}
 		}
-		return eindpuntBereikt;
 	}
 	
 	void sendETAs(int nu){
